@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fullsend AI Coder Stats</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+</head>
+<body>
+  <header>
+    <h1>Fullsend AI Coder Stats</h1>
+    <div class="controls">
+      <label for="granularity">View by:</label>
+      <select id="granularity">
+        <option value="day">Day</option>
+        <option value="week">Week</option>
+        <option value="month">Month</option>
+      </select>
+    </div>
+    <span class="meta">Last updated: <span id="last-updated">--</span></span>
+  </header>
+
+  <main id="dashboard">
+    <section id="summary-cards" class="summary-cards"></section>
+
+    <section class="charts">
+      <div class="chart-container">
+        <canvas id="prCountChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <canvas id="fsfixChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <canvas id="humanLabelChart"></canvas>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="detail-header">
+        <label for="date-selector">Select date:</label>
+        <select id="date-selector">
+          <option value="">-- Select a date --</option>
+        </select>
+      </div>
+      <div id="detail-cards" class="summary-cards" style="display:none;"></div>
+      <table id="pr-table" class="pr-table" style="display:none;">
+        <thead>
+          <tr>
+            <th>PR #</th>
+            <th>Title</th>
+            <th>State</th>
+            <th>Merged</th>
+            <th>/fs-fix</th>
+            <th>Human Label</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="js/aggregator.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
